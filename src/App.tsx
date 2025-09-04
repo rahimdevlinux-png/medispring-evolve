@@ -7,6 +7,14 @@ import { AuthProvider } from "@/contexts/AuthContext";
 import { ProtectedRoute } from "@/components/ProtectedRoute";
 import { Login } from "@/pages/Login";
 import { Clinics } from "@/pages/Clinics";
+import { Doctors } from "@/pages/Doctors";
+import { Patients } from "@/pages/Patients";
+import { Appointments } from "@/pages/Appointments";
+import { Billing } from "@/pages/Billing";
+import { Pharmacy } from "@/pages/Pharmacy";
+import { Labs } from "@/pages/Labs";
+import { Reports } from "@/pages/Reports";
+import { Notifications } from "@/pages/Notifications";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 
@@ -34,6 +42,70 @@ const App = () => (
               element={
                 <ProtectedRoute allowedRoles={['super_master_admin']}>
                   <Clinics />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/doctors" 
+              element={
+                <ProtectedRoute allowedRoles={['super_master_admin', 'super_admin']}>
+                  <Doctors />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/patients" 
+              element={
+                <ProtectedRoute allowedRoles={['super_master_admin', 'super_admin', 'doctor', 'nurse']}>
+                  <Patients />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/appointments" 
+              element={
+                <ProtectedRoute allowedRoles={['super_master_admin', 'super_admin', 'doctor', 'nurse']}>
+                  <Appointments />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/billing" 
+              element={
+                <ProtectedRoute allowedRoles={['super_master_admin', 'super_admin', 'billing']}>
+                  <Billing />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/pharmacy" 
+              element={
+                <ProtectedRoute allowedRoles={['super_master_admin', 'super_admin', 'pharmacy']}>
+                  <Pharmacy />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/labs" 
+              element={
+                <ProtectedRoute allowedRoles={['super_master_admin', 'super_admin', 'doctor']}>
+                  <Labs />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/reports" 
+              element={
+                <ProtectedRoute allowedRoles={['super_master_admin', 'super_admin']}>
+                  <Reports />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/notifications" 
+              element={
+                <ProtectedRoute allowedRoles={['super_master_admin', 'super_admin', 'doctor', 'nurse', 'billing', 'pharmacy']}>
+                  <Notifications />
                 </ProtectedRoute>
               } 
             />
