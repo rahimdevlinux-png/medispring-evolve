@@ -26,6 +26,7 @@ export default {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          hover: "hsl(var(--primary-hover))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -34,6 +35,14 @@ export default {
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
+        },
+        warning: {
+          DEFAULT: "hsl(var(--warning))",
+          foreground: "hsl(var(--warning-foreground))",
+        },
+        success: {
+          DEFAULT: "hsl(var(--success))",
+          foreground: "hsl(var(--success-foreground))",
         },
         muted: {
           DEFAULT: "hsl(var(--muted))",
@@ -51,20 +60,18 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        success: "hsl(var(--success))",
-        warning: "hsl(var(--warning))",
-        medical: {
-          teal: "hsl(var(--medical-teal))",
-          "teal-dark": "hsl(var(--medical-teal-dark))",
-        }
+        "medical-teal": "hsl(var(--medical-teal))",
+        "medical-teal-light": "hsl(var(--medical-teal-light))",
+        "medical-teal-dark": "hsl(var(--medical-teal-dark))",
       },
       backgroundImage: {
-        'gradient-primary': 'linear-gradient(135deg, hsl(var(--medical-teal)), hsl(var(--medical-teal-dark)))',
-        'gradient-hero': 'linear-gradient(135deg, hsl(var(--medical-teal)), hsl(var(--primary)))',
+        'gradient-primary': 'linear-gradient(135deg, hsl(var(--medical-teal)), hsl(var(--medical-teal-light)))',
+        'gradient-hero': 'linear-gradient(135deg, hsl(var(--medical-teal)), hsl(var(--medical-teal-dark)))',
+        'hospital-header': 'linear-gradient(90deg, hsl(var(--medical-teal)), hsl(var(--medical-teal-light)))',
       },
       boxShadow: {
-        'medical-floating': '0 10px 30px -10px hsl(var(--medical-teal) / 0.3)',
-        'medical-glow': '0 0 40px hsl(var(--medical-teal) / 0.4)',
+        'hospital-card': '0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)',
+        'hospital-floating': '0 10px 25px -3px rgb(0 0 0 / 0.1), 0 4px 6px -2px rgb(0 0 0 / 0.1)',
       },
       borderRadius: {
         lg: "var(--radius)",

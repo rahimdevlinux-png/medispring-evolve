@@ -2,45 +2,69 @@
 @tailwind components;
 @tailwind utilities;
 
+/* SMAART Healthcare Professional Theme - Hospital Teal */
+
 @layer base {
   :root {
+    /* Clean White Background */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 178 73% 40%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 222.2 84% 4.9%;
-    --muted: 210 40% 96%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96%;
-    --accent-foreground: 222.2 84% 4.9%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 178 73% 40%;
-    --radius: 0.75rem;
-    --success: 142 71% 45%;
-    --warning: 38 92% 50%;
+    --foreground: 210 16% 23%;
     
-    /* Medical theme colors - Teal gradient from the image */
-    --medical-teal: 178 73% 40%;
-    --medical-teal-dark: 178 73% 30%;
+    /* Card System */
+    --card: 0 0% 100%;
+    --card-foreground: 210 16% 23%;
+    
+    /* Popover */
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 16% 23%;
+    
+    /* Professional Hospital Teal - Main Brand Color */
+    --primary: 180 65% 48%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 180 65% 42%;
+    
+    /* Subtle Hospital Grays */
+    --secondary: 210 20% 96%;
+    --secondary-foreground: 210 16% 23%;
+    
+    --muted: 210 15% 97%;
+    --muted-foreground: 215 16% 47%;
+    
+    --accent: 180 25% 94%;
+    --accent-foreground: 210 16% 23%;
+    
+    /* Medical Alert Colors */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --warning: 43 96% 56%;
+    --warning-foreground: 210 16% 23%;
+    
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+    
+    /* Clean Professional Borders */
+    --border: 210 20% 90%;
+    --input: 210 20% 94%;
+    --ring: 180 65% 48%;
+    
+    --radius: 0.5rem;
+    
+    /* Hospital Theme Colors */
+    --medical-teal: 180 65% 48%;
+    --medical-teal-light: 180 65% 55%;
+    --medical-teal-dark: 180 65% 38%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
+    --background: 210 24% 9%;
     --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
+    --card: 210 24% 9%;
     --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
+    --popover: 210 24% 9%;
     --popover-foreground: 210 40% 98%;
-    --primary: 178 73% 40%;
-    --primary-foreground: 222.2 84% 4.9%;
+    --primary: 180 65% 55%;
+    --primary-foreground: 210 24% 9%;
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
     --muted: 217.2 32.6% 17.5%;
@@ -51,13 +75,37 @@
     --destructive-foreground: 210 40% 98%;
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 178 73% 40%;
+    --ring: 180 65% 55%;
     --success: 142 71% 45%;
     --warning: 38 92% 50%;
 
     /* Medical theme colors for dark mode */
-    --medical-teal: 178 73% 50%;
-    --medical-teal-dark: 178 73% 35%;
+    --medical-teal: 180 65% 55%;
+    --medical-teal-light: 180 65% 62%;
+    --medical-teal-dark: 180 65% 42%;
+  }
+}
+
+@layer components {
+  /* Hospital Professional Components */
+  .hospital-card {
+    @apply bg-card text-card-foreground rounded-lg border border-border shadow-sm;
+  }
+  
+  .hospital-button-primary {
+    @apply bg-primary text-primary-foreground hover:bg-[hsl(var(--primary-hover))] 
+           transition-colors duration-200 rounded-md px-4 py-2 font-medium 
+           focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2;
+  }
+  
+  .hospital-input {
+    @apply bg-background border border-input rounded-md px-3 py-2 text-foreground 
+           placeholder:text-muted-foreground focus:outline-none focus:ring-2 
+           focus:ring-ring focus:border-transparent transition-colors duration-200;
+  }
+  
+  .hospital-header {
+    @apply bg-gradient-to-r from-medical-teal to-medical-teal-light text-white;
   }
 }
 
@@ -65,7 +113,13 @@
   * {
     @apply border-border;
   }
+  
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  
+  /* Professional Typography */
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-foreground font-semibold;
   }
 }

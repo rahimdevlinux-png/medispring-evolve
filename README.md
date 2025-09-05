@@ -1,73 +1,212 @@
-# Welcome to your Lovable project
+# SMAART Healthcare EMR System
 
-## Project info
+A comprehensive Electronic Medical Records (EMR) platform built with React.js and Node.js, designed for hospital management with role-based access control.
 
-**URL**: https://lovable.dev/projects/f189203f-d736-42a3-8bba-84b96cb75f10
+## 🏥 Features
 
-## How can I edit this code?
+- **Multi-Role Dashboard System**: Super Master Admin, Clinic Admin, Doctor, Nurse, Billing, Pharmacy, and Patient portals
+- **Professional Healthcare Theme**: Clean teal and white design optimized for medical environments
+- **Clinic Management**: Multi-clinic support with individual admin controls
+- **Patient Management**: Complete patient records with medical history
+- **Appointment Scheduling**: Advanced booking system with calendar integration
+- **Billing & Insurance**: Comprehensive financial management with insurance claims
+- **Prescription Management**: Digital prescriptions with pharmacy integration
+- **MongoDB Integration**: Ready for MongoDB database connection
+- **Role-Based Security**: JWT authentication with strict access controls
 
-There are several ways of editing your application.
+## 🚀 Quick Start
 
-**Use Lovable**
+### Prerequisites
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/f189203f-d736-42a3-8bba-84b96cb75f10) and start prompting.
+- Node.js (v16 or higher)
+- MongoDB (running on localhost:27017)
+- npm or yarn
 
-Changes made via Lovable will be committed automatically to this repo.
+### Installation
 
-**Use your preferred IDE**
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd smaart-healthcare
+   ```
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+2. **Install Frontend Dependencies**
+   ```bash
+   cd frontend
+   npm install
+   ```
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+3. **Install Backend Dependencies**
+   ```bash
+   cd ../backend
+   npm install
+   ```
 
-Follow these steps:
+4. **Setup Environment Variables**
+   
+   Backend (.env):
+   ```env
+   PORT=4000
+   MONGODB_URI=mongodb://127.0.0.1:27017/smaart_emr
+   JWT_SECRET=your_jwt_secret_here
+   OTP_TTL_SECONDS=300
+   ```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+5. **Start the Applications**
+   
+   In separate terminals:
+   
+   **Backend Server:**
+   ```bash
+   cd backend
+   npm run dev
+   ```
+   
+   **Frontend Application:**
+   ```bash
+   cd frontend
+   npm run dev
+   ```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## 🔐 Demo Credentials
 
-# Step 3: Install the necessary dependencies.
-npm i
+### Super Master Admin (Global Access)
+- **Email**: `admin@smaart.healthcare`
+- **Password**: `Password123!`
+- **Access**: Full system control, clinic management, global analytics
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+### Clinic Super Admin
+- **Email**: `admin.citycare@smaart.healthcare`
+- **Password**: `Password123!`
+- **Access**: CityCare Hospital management, staff control
+
+### Doctor
+- **Email**: `dr.rajesh@citycare.smaart.healthcare`
+- **Password**: `Password123!`
+- **Access**: Patient consultations, medical records
+
+### Patient
+- **Email**: `patient@example.com`
+- **Password**: `Password123!`
+- **Access**: Personal health records, appointments
+
+## 🏗️ Architecture
+
+### Frontend (React.js)
+```
+frontend/
+├── src/
+│   ├── components/
+│   │   ├── ui/           # Reusable UI components
+│   │   ├── layout/       # Header, Sidebar, Layout
+│   │   └── dashboard/    # KPI cards, widgets
+│   ├── pages/           # Role-specific pages
+│   ├── contexts/        # Auth and state management
+│   └── lib/            # Utilities and helpers
+└── public/
 ```
 
-**Edit a file directly in GitHub**
+### Backend (Node.js/Express)
+```
+backend/
+├── src/
+│   ├── routes/         # API endpoints
+│   ├── middleware/     # Auth, validation
+│   ├── models/         # Database schemas (ready for MongoDB)
+│   └── controllers/    # Business logic
+└── uploads/           # File storage
+```
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 🎨 Design System
 
-**Use GitHub Codespaces**
+### Color Palette
+- **Primary Teal**: `hsl(180, 65%, 48%)` - Main brand color
+- **Background**: Pure white `hsl(0, 0%, 100%)`
+- **Professional Grays**: Subtle borders and text
+- **Medical Accents**: Green for success, red for alerts
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Typography
+- **Headers**: Semibold weights for hierarchy
+- **Body**: Clean, readable fonts
+- **Medical Data**: Monospace for precision
 
-## What technologies are used for this project?
+## 📱 Pages & Modules
 
-This project is built with:
+### Global Admin
+- **Dashboard**: System-wide KPIs and analytics
+- **Clinics**: Add/manage hospital partners
+- **Reports**: Revenue, utilization, compliance
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Clinic Management
+- **Doctors**: Staff management and schedules
+- **Patients**: Registration and medical records
+- **Appointments**: Calendar and booking system
+- **Billing**: Invoicing and insurance claims
+- **Pharmacy**: Prescription and inventory
+- **Labs**: Test orders and results
 
-## How can I deploy this project?
+### Medical Staff
+- **Doctor Portal**: Patient queue, medical records, prescriptions
+- **Nurse Portal**: Vitals, treatment updates, care logs
+- **Billing Portal**: Financial records, claims processing
+- **Pharmacy Portal**: Dispensing, stock management
 
-Simply open [Lovable](https://lovable.dev/projects/f189203f-d736-42a3-8bba-84b96cb75f10) and click on Share -> Publish.
+### Patient Portal
+- **Health Records**: Medical history and documents
+- **Appointments**: Booking and telemedicine
+- **Prescriptions**: Digital prescriptions and refills
+- **Billing**: Payment history and insurance
 
-## Can I connect a custom domain to my Lovable project?
+## 🔧 Configuration
 
-Yes, you can!
+### MongoDB Schema (Ready to implement)
+- Users with role-based access
+- Clinics with department structure
+- Patients with complete medical history
+- Appointments with scheduling logic
+- Billing with insurance integration
+- Audit trails for compliance
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### Authentication
+- JWT-based sessions
+- Role-based route protection
+- OTP integration ready
+- Password security standards
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## 🚀 Deployment
+
+### Development
+```bash
+# Run both frontend and backend
+npm run dev:all
+```
+
+### Production
+- Frontend: Build for static hosting
+- Backend: Deploy to cloud with MongoDB Atlas
+- Database: MongoDB with proper indexing
+- Storage: AWS S3 for files
+- CDN: CloudFlare for global delivery
+
+## 📞 Support
+
+For technical support or customization:
+- Check the issues section
+- Review API documentation in `/backend/docs`
+- Follow coding standards in the style guide
+
+## 🔒 Security
+
+- HIPAA-ready architecture
+- Encrypted patient data
+- Audit logging
+- Role-based permissions
+- Secure API endpoints
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+---
+
+**SMAART Healthcare EMR** - *Transforming Healthcare with Technology*
